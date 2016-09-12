@@ -8,8 +8,8 @@
    :user "admin"
    :password "doboj100"})
 
-(defn create-book [book]
-  (sql/insert! connection :book [:text] [book]))
+(defn create-book [title description isbn author]
+  (sql/insert! connection :book [:title :description :isbn :author] [title description isbn author]))
 
 (defn delete-book [id]
  (sql/delete! connection :book

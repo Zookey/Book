@@ -14,7 +14,8 @@
     [:th "id"]
     [:th "title"]
     [:th "description"]
-    [:th "isbn"
+    [:th "isbn"]
+    [:th "author"]
      [:th "delete"]
      [:th "update"]
      (map 
@@ -27,24 +28,24 @@
           [:td (h (:author book))]
           [:td [:a {:href (str "/delete/" (h (:id book)))} "delete"]]
           [:td [:a {:href (str "/update/" (h (:id book)))} "update"]]
-          ]) books)]]])
+          ]) books)]])
 
 (defn add-book-form []
   [:div (form/form-to [:post "/"]
                       (anti-forgery/anti-forgery-field)
-                      (form/label "book" "Title: ")
+                      (form/label "title" "Title: ")
                       [:br]
                       (form/text-field "title")
                       [:br]
-                      (form/label "book" "Description: ")
+                      (form/label "description" "Description: ")
                       [:br]
                       (form/text-field "description")
                       [:br]
-                      (form/label "book" "ISBN: ")
+                      (form/label "isbn" "ISBN: ")
                       [:br]
                       (form/text-field "isbn")
                       [:br]
-                      (form/label "book" "Author: ")
+                      (form/label "author" "Author: ")
                       [:br]
                       (form/text-field "author")
                       [:br]

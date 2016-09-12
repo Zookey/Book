@@ -23,9 +23,9 @@ CREATE TABLE `book` (
   `title` text,
   `description` text,
   `author` text,
-  `isbn` int(11) DEFAULT NULL,
+  `isbn` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `book` */
 

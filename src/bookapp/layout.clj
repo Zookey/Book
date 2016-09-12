@@ -13,7 +13,4 @@
      [:div {:id "content" :class "container"} body]]))
 
 (defn not-found []
-  [:div
-   [:h1 "Page Not Found"]
-   [:p "We can not found requested page. "]
-   (link-to "/" "Back to home")])
+  (common "NOT FOUND" [:div {:id "error"} "The page you requested could not be found"]))
