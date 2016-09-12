@@ -1,6 +1,12 @@
-(ns bookapp.core)
+(ns bookapp.core 
+  (:use compojure.core
+        ring.adapter.jetty)
+  (:require [compojure.core :refer [defroutes GET POST]]
+            [clojure.string :as str]     
+            [ring.util.response :as ring]    
+            [ring.middleware.resource :refer [wrap-resource]]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
+            ))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defroutes my_routes
+  (GET "/" [] "Hello world message"))

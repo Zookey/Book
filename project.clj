@@ -16,4 +16,4 @@
   :plugins [[lein2-eclipse "2.0.0"]
             [lein-ring "0.8.10"]]
   
-  :ring {:handler book.handler/app})
+  :ring {:handler bookapp.handler/app})
