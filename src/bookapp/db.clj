@@ -17,3 +17,9 @@
 
 (defn get-all-books []
   (into [] (sql/query connection ["select * from book"])))
+
+(defn get-book-by-id [id]
+    (into [] (sql/query connection ["select * from book where id = ?" id])))
+
+(defn update-book [id title description isbn author]
+  (sql/insert! connection :book [:id :title :description :isbn :author] [id title description isbn author]))

@@ -14,7 +14,7 @@
   (view/index-page (db/get-all-books)))
 
 (defn create-book [title description isbn author]
-    (when-not (str/blank? title)
+  (when-not (str/blank? title)
     (db/create-book title description isbn author))
   (ring/redirect "/"))
 
@@ -23,9 +23,18 @@
     (db/delete-book id))
   (ring/redirect "/"))
 
+(defn show-update-view [id]
+ (view/update-book-form (db/get-book-by-id id)))
+
+(defn update-book [id title description isbn author]
+    (db/update-book id title description isbn author)
+  (ring/redirect "/"))
+
 (defroutes my_routes
   (GET "/" [] (display-all-books))
   (POST "/" [title description isbn author] (create-book title description isbn author))
+  (POST "update-book/"  [id title description isbn author] (update-book id title description isbn author))
+  (GET "/update/:id" [id] (show-update-view id))  
   (GET "/delete/:id" [id]  (delete-book id)))
 
 (def app
