@@ -50,7 +50,7 @@
                       (form/text-field "author")
                       [:br]
                       [:br]
-                      (form/submit-button "Add book")
+                      (form/submit-button {:class "btn btn-primary"}  "Add book")
                       [:br])])
 
 (defn index-page [books] 
