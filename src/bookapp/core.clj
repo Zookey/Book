@@ -1,5 +1,6 @@
 (ns bookapp.core 
   (:use compojure.core
+        ring.util.json-response 
         ring.adapter.jetty)
   (:require [compojure.core :refer [defroutes GET POST]]
             [clojure.string :as str]     
@@ -36,7 +37,9 @@
   (POST "/" [title description isbn author] (create-book title description isbn author))
   (POST "/update-book"  [id title description isbn author] (update-book id title description isbn author))
   (GET "/update/:id" [id] (show-update-view id))  
-  (GET "/delete/:id" [id]  (delete-book id)))
+  (GET "/delete/:id" [id]  (delete-book id))
+  (GET "/api/all" [] (json-response (db/get-all-books))))
+ 
 
 (def app
   (wrap-defaults my_routes site-defaults))

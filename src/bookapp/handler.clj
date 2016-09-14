@@ -1,4 +1,6 @@
 (ns bookapp.handler
+    (:use ring.middleware.json 
+        ring.adapter.jetty)
   (:require [compojure.core :refer [defroutes ANY]]
             [ring.adapter.jetty :as ring]
             [compojure.route :as route]
