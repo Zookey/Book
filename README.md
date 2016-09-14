@@ -7,8 +7,9 @@ Book - Clojure CRUD app with Bootstrap.
 There is also book.sql file with some dummy data that needs to be imported.
 
 To start a web server for the application, run:
-
+```
 lein ring server
+```
 
 ## License
 
