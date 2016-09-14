@@ -27,13 +27,14 @@
  (view/update-book-form (db/get-book-by-id id)))
 
 (defn update-book [id title description isbn author]
-    (db/update-book id title description isbn author)
-  (ring/redirect "/"))
+    (when-not (str/blank? id)
+    (db/update-book id title description isbn author))
+   (view/index-page (db/get-all-books)))
 
 (defroutes my_routes
   (GET "/" [] (display-all-books))
   (POST "/" [title description isbn author] (create-book title description isbn author))
-  (POST "update-book/"  [id title description isbn author] (update-book id title description isbn author))
+  (POST "/update-book"  [id title description isbn author] (update-book id title description isbn author))
   (GET "/update/:id" [id] (show-update-view id))  
   (GET "/delete/:id" [id]  (delete-book id)))
 

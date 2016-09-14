@@ -63,28 +63,30 @@
                         ))
 
 
-(defn update-book-form [id]
+(defn update-book-form [book]
    (layout/common-layout "" 
   [:div {:class "form-group card"} 
    [:h1 {:class "text-center"} "Update book"]
-    (form/form-to [:post "/update-book"]
-                  
+    (map 
+      (fn [book]
+     (form/form-to [:post "/update-book"]
                  (anti-forgery/anti-forgery-field)
-                 (form/hidden-field "id" (h id))
+                 (form/hidden-field "id" (:id book))
                  [:div {:class "form-group"}
                   (form/label "title" "Title ")
-                  (form/text-field {:class "form-control"} "title" )]
+                  (form/text-field {:class "form-control"} "title" (:title book))]
                  [:div {:class "form-group"}                  
                   (form/label "description" "Description ")                  
-                  (form/text-field {:class "form-control"}  "description")]
+                  (form/text-field {:class "form-control"}  "description" (:description book))]
                  [:div {:class "form-group"}                  
                   (form/label "isbn" "ISBN ")                  
-                  (form/text-field {:class "form-control"}  "isbn")]
+                  (form/text-field {:class "form-control"}  "isbn" (:isbn book))]
                  [:div {:class "form-group"}                  
                   (form/label "author" "Author ")                  
-                  (form/text-field {:class "form-control"}  "author")]
+                  (form/text-field {:class "form-control"}  "author" (:author book))]
                  (form/submit-button {:class "btn btn-primary btn-lg btn-block"}  "Update book")
-                 [:br])
-]))
+                 [:br])) book)]
+    
+))
 
 

@@ -1,0 +1,2 @@
+cmdhistory=["(defn update-book 1)" "(deefn update-book [1, \\"title\\", \\"opis\\", 123, \\"marko\\"])" "(defn update-book [1, \\"title\\", \\"opis\\", 123, \\"marko\\"])" "(deefn update-book [\\"1\\", \\"title\\", \\"opis\\", \\"123\\", \\"marko\\"])" "(defn update-book [\\"1\\", \\"title\\", \\"opis\\", \\"12\\", \\"marko\\"])" "(defn get-all-books)"]
+eclipse.preferences.version=1

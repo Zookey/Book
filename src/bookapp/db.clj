@@ -22,4 +22,5 @@
     (into [] (sql/query connection ["select * from book where id = ?" id])))
 
 (defn update-book [id title description isbn author]
-  (sql/insert! connection :book [:id :title :description :isbn :author] [id title description isbn author]))
+  ;;(update! db :person {:zip 94540} ["zip = ?" 94546])
+  (sql/update! connection :book {:id id :title title :description description :isbn isbn :author author} ["id = ?" id]))
